@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Valentine Countdown for Moluzz 🌻</title>
+    <link rel="stylesheet" href="valentine-countdown.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ============================================
+         FLOATING BACKGROUND ELEMENTS
+         ============================================ -->
+    <div class="background-container">
+        <div class="floating-hearts">
+            <span>❤️</span><span>💕</span><span>❤️</span><span>💕</span>
+            <span>❤️</span><span>💕</span><span>❤️</span><span>💕</span>
+        </div>
+        <div class="floating-petals">
+            <span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span>
+            <span>🌸</span><span>🌸</span>
+        </div>
+        <div class="floating-sunflowers">
+            <span>🌻</span><span>🌻</span><span>🌻</span>
+        </div>
+        <div class="glow-orbs">
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+            <div class="glow-orb orb-3"></div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         MUSIC PLAYER
+         ============================================ -->
+    <div class="music-player">
+        <button class="music-toggle" id="musicToggle">🎵</button>
+        <audio id="bgMusic" loop volume="0.3">
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- ============================================
+         MAIN CONTENT
+         ============================================ -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="title">💕 Valentine Countdown 💕</h1>
+            <p class="subtitle">For My Beloved Moluzz 💕</p>
+            <p class="tagline">Each day unlocks a new piece of my heart for you</p>
+            <p class="current-date" id="currentDate"></p>
+        </div>
+
+        <!-- Days Grid -->
+        <div class="days-container">
+            <!-- DAY 1: Teddy Day -->
+            <div class="day-card locked" id="day1" data-day="1" data-date="2026-02-10">
+                <div class="card-lock" id="lock1">
+                    <div class="lock-icon">🔒</div>
+                    <div class="lock-text">Locked</div>
+                </div>
+                <div class="card-content" style="display: none;">
+                    <button class="close-btn" onclick="closeDay(1)">✕</button>
+                    <div class="day-header">
+                        <h2>Teddy Day</h2>
+                        <p class="day-date">February 10</p>
+                    </div>
+                    <div class="teddy-animation" id="teddyBear">🧸</div>
+                    <p class="message">If I were a teddy, I'd live in your arms forever.</p>
+                    <p class="interaction-hint">Tap the teddy! 👆</p>
+                    <div class="hidden-message" id="msg1" style="display: none;">
+                        <p class="reveal-text">You're my comfort place. 💕</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 2: Promise Day -->
+            <div class="day-card locked" id="day2" data-day="2" data-date="2026-02-11">
+                <div class="card-lock" id="lock2">
+                    <div class="lock-icon">🔒</div>
+                    <div class="lock-text">Locked</div>
+                </div>
+                <div class="card-content" style="display: none;">
+                    <button class="close-btn" onclick="closeDay(2)">✕</button>
+                    <div class="day-header">
+                        <h2>Promise Day</h2>
+                        <p class="day-date">February 11</p>
+                    </div>
+                    <div class="promise-ring">💍</div>
+                    <div class="promises-text">
+                        <p>I promise to choose you,</p>
+                        <p>to protect your smile,</p>
+                        <p>and to stay when life gets hard.</p>
+                    </div>
+                    <button class="seal-button" onclick="sealPromise()">Seal This Promise</button>
+                    <div class="hidden-message" id="msg2" style="display: none;">
+                        <p class="reveal-text">Forever starts with you. 💫</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 3: Hug Day -->
+            <div class="day-card locked" id="day3" data-day="3" data-date="2026-02-12">
+                <div class="card-lock" id="lock3">
+                    <div class="lock-icon">🔒</div>
+                    <div class="lock-text">Locked</div>
+                </div>
+                <div class="card-content" style="display: none;">
+                    <button class="close-btn" onclick="closeDay(3)">✕</button>
+                    <div class="day-header">
+                        <h2>Hug Day</h2>
+                        <p class="day-date">February 12</p>
+                    </div>
+                    <div class="hug-animation">👫</div>
+                    <p class="message">My favorite place is inside your arms.</p>
+                    <p class="interaction-hint">Hold your finger on screen 👇</p>
+                    <div class="hug-progress-bar">
+                        <div class="hug-progress" id="hugProgress"></div>
+                    </div>
+                    <div class="hidden-message" id="msg3" style="display: none;">
+                        <p class="reveal-text">That's how safe you make me feel. 🏡❤️</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 4: Kiss Day -->
+            <div class="day-card locked" id="day4" data-day="4" data-date="2026-02-13">
+                <div class="card-lock" id="lock4">
+                    <div class="lock-icon">🔒</div>
+                    <div class="lock-text">Locked</div>
+                </div>
+                <div class="card-content" style="display: none;">
+                    <button class="close-btn" onclick="closeDay(4)">✕</button>
+                    <div class="day-header">
+                        <h2>Kiss Day</h2>
+                        <p class="day-date">February 13</p>
+                    </div>
+                    <p class="message">You're dangerously kissable.</p>
+                    <p class="interaction-hint">Tap to send kisses 💋</p>
+                    <div class="kiss-canvas" id="kissCanvas"></div>
+                    <p class="kiss-counter">Kisses sent: <span id="kissCount">0</span></p>
+                </div>
+            </div>
+
+            <!-- DAY 5: Valentine's Day -->
+            <div class="day-card locked" id="day5" data-day="5" data-date="2026-02-14">
+                <div class="card-lock" id="lock5">
+                    <div class="lock-icon">🔒</div>
+                    <div class="lock-text">Locked</div>
+                </div>
+                <div class="card-content" style="display: none;">
+                    <button class="close-btn" onclick="closeDay(5)">✕</button>
+                    <div class="day-header">
+                        <h2>Valentine's Day</h2>
+                        <p class="day-date">February 14</p>
+                    </div>
+                    <div class="sunset-animation">🌅</div>
+                    <div class="final-message">
+                        <p>Moluzz,</p>
+                        <p>You are my today,</p>
+                        <p>my tomorrow,</p>
+                        <p>and my forever Valentine.</p>
+                    </div>
+                    <button class="final-button" onclick="triggerExplosion()">❤️ Open My Heart ❤️</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         VALENTINE PROPOSAL OVERLAY
+         ============================================ -->
+    <div class="proposal-overlay" id="proposalOverlay" style="display: none;">
+        <button class="close-explosion-btn" onclick="closeProposal()">✕</button>
+        <div class="proposal-container">
+            <div class="proposal-question" id="proposalQuestion">
+                <h1>Will you be my</h1>
+                <h1 style="color: #ff1493; font-size: 3.5rem; margin: 20px 0;">VALENTINE?</h1>
+                <p style="font-size: 1.3rem; margin: 30px 0; color: #666;">💕 Moluzz, I can't imagine my forever without you 💕</p>
+                <div class="button-container">
+                    <button class="yes-btn" id="yesBtn" onclick="handleYes()">YES</button>
+                    <button class="no-btn" id="noBtn" onclick="handleNo()">No</button>
+                </div>
+            </div>
+
+            <div class="proposal-result" id="proposalResult" style="display: none;">
+                <div class="proposal-image">
+                    <div class="heart-animation">💕❤️💕</div>
+                </div>
+                <div class="love-letter">
+                    <h2>My Dearest Moluzz,</h2>
+                    <p>Every moment with you feels like a dream I never want to wake up from. Your smile brightens my darkest days, your laugh is my favorite song, and your love is my greatest blessing.</p>
+                    <p>I promise to love you through every season, to be your strength when you're weak, your joy when you're sad, and your forever home.</p>
+                    <p>Thank you for saying YES to being my Valentine. Thank you for choosing me, for believing in us, and for making every day feel like Valentine's Day.</p>
+                    <p>I love you more than words could ever express.</p>
+                    <p style="margin-top: 30px; font-style: italic;">Forever yours,<br>Hishamkaakaa💕</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="valentine-countdown.js"></script>
+</body>
+</html>

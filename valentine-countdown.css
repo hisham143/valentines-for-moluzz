@@ -1,0 +1,870 @@
+/* ============================================
+   VALENTINE COUNTDOWN - CINEMATIC DESIGN
+   Mobile-First, Romantic, Immersive
+   ============================================ */
+
+:root {
+    --primary-pink: #ff1493;
+    --light-pink: #ffb6d9;
+    --pale-pink: #fff0f5;
+    --warm-yellow: #ffc864;
+    --gold: #ffa500;
+    --sunset-orange: #ff8c42;
+    --romantic-red: #d63384;
+    --soft-shadow: rgba(214, 51, 132, 0.15);
+    --glow-shadow: 0 0 30px rgba(255, 200, 100, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background: linear-gradient(135deg, #fff5f7 0%, #ffe4f0 50%, #fff0f7 100%);
+    color: #333;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ============================================
+   BACKGROUND FLOATING ELEMENTS
+   ============================================ */
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floating-hearts span,
+.floating-petals span,
+.floating-sunflowers span {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+.floating-hearts span {
+    animation-duration: 8s;
+}
+
+.floating-petals span {
+    font-size: 1.5rem;
+    animation-duration: 10s;
+    opacity: 0.4;
+}
+
+.floating-sunflowers span {
+    font-size: 2.5rem;
+    animation-duration: 12s;
+    opacity: 0.5;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px) rotate(10deg);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-40px) translateX(-10px) rotate(20deg);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translateY(-20px) translateX(15px) rotate(10deg);
+        opacity: 0.6;
+    }
+}
+
+/* Glow Orbs */
+.glow-orbs {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.15;
+}
+
+.orb-1 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #ff1493, transparent);
+    top: 10%;
+    left: 10%;
+    animation: orbGlow 8s ease-in-out infinite;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #ffc864, transparent);
+    top: 50%;
+    right: -100px;
+    animation: orbGlow 10s ease-in-out infinite reverse;
+}
+
+.orb-3 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, #ff8c42, transparent);
+    bottom: 10%;
+    left: 50%;
+    animation: orbGlow 12s ease-in-out infinite;
+}
+
+@keyframes orbGlow {
+    0%, 100% { opacity: 0.1; transform: scale(1); }
+    50% { opacity: 0.25; transform: scale(1.1); }
+}
+
+/* ============================================
+   MUSIC PLAYER
+   ============================================ */
+
+.music-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff1493, #ffb6d9);
+    border: 2px solid white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 20, 147, 0.3);
+    transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(255, 20, 147, 0.5);
+}
+
+.music-toggle.playing {
+    animation: musicPulse 0.6s ease-in-out;
+}
+
+@keyframes musicPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* ============================================
+   MAIN CONTAINER & HEADER
+   ============================================ */
+
+.container {
+    position: relative;
+    z-index: 10;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 40px;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #ff1493, #d63384);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 15px rgba(255, 20, 147, 0.2);
+}
+
+.subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #d63384;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.tagline {
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.current-date {
+    font-size: 0.9rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* ============================================
+   DAYS CONTAINER & CARDS
+   ============================================ */
+
+.days-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 40px;
+}
+
+.day-card {
+    position: relative;
+    min-height: 350px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255, 240, 245, 0.95), rgba(255, 182, 217, 0.95));
+    border: 2px solid #ffb6d9;
+    box-shadow: 0 15px 40px rgba(255, 20, 147, 0.15),
+                0 0 40px rgba(255, 200, 100, 0.2);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: slideIn 0.6s ease-out backwards;
+}
+
+.day-card:hover:not(.locked) {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(255, 20, 147, 0.25),
+                0 0 50px rgba(255, 200, 100, 0.3);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card states */
+.day-card.locked .card-lock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 15px;
+}
+
+.day-card.locked .card-content {
+    display: none !important;
+}
+
+.day-card.unlocked .card-lock {
+    display: none;
+}
+
+.day-card.unlocked .card-content {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    min-height: 350px;
+}
+
+/* Lock Icon */
+.card-lock {
+    display: none;
+    text-align: center;
+    animation: lockBounce 1.2s ease-in-out infinite;
+}
+
+.lock-icon {
+    font-size: 4rem;
+    animation: lockGlow 2s ease-in-out infinite;
+}
+
+.lock-text {
+    font-size: 0.9rem;
+    color: #d63384;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+@keyframes lockBounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.1); }
+}
+
+@keyframes lockGlow {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(214, 51, 132, 0.3)); }
+    50% { filter: drop-shadow(0 0 15px rgba(214, 51, 132, 0.6)); }
+}
+
+/* Card Content */
+.card-content {
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #d63384;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    opacity: 1;
+    transform: rotate(90deg) scale(1.2);
+}
+
+.day-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #d63384;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.day-date {
+    font-size: 0.85rem;
+    color: #999;
+    font-style: italic;
+}
+
+.message {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 20px 0;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.interaction-hint {
+    font-size: 0.85rem;
+    color: #ff1493;
+    font-weight: 600;
+    margin-bottom: 15px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* ============================================
+   DAY-SPECIFIC ANIMATIONS
+   ============================================ */
+
+/* Day 1: Teddy */
+.teddy-animation {
+    font-size: 5rem;
+    margin: 20px 0;
+    animation: teddyBounce 1s ease-in-out infinite;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.teddy-animation:active {
+    animation: teddyHug 0.6s ease-out;
+}
+
+@keyframes teddyBounce {
+    0%, 100% { transform: translateY(0) rotateZ(-3deg) scale(1); }
+    50% { transform: translateY(-15px) rotateZ(3deg) scale(1.1); }
+}
+
+@keyframes teddyHug {
+    0% { transform: scale(1) rotateZ(0); }
+    25% { transform: scale(1.2) rotateZ(-5deg); }
+    50% { transform: scale(1.1) rotateZ(5deg); }
+    75% { transform: scale(1.15) rotateZ(-3deg); }
+    100% { transform: scale(1) rotateZ(0); }
+}
+
+/* Day 2: Promise */
+.promise-ring {
+    font-size: 4rem;
+    margin: 20px 0;
+    animation: ringGlow 2s ease-in-out infinite;
+}
+
+@keyframes ringGlow {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(214, 51, 132, 0.3)); }
+    50% { transform: scale(1.15); filter: drop-shadow(0 0 20px rgba(214, 51, 132, 0.6)); }
+}
+
+.promises-text {
+    margin: 15px 0;
+    line-height: 2;
+}
+
+.promises-text p {
+    font-size: 1rem;
+    color: #555;
+    animation: slideInUp 0.8s ease-out backwards;
+}
+
+.promises-text p:nth-child(1) { animation-delay: 0.1s; }
+.promises-text p:nth-child(2) { animation-delay: 0.2s; }
+.promises-text p:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.seal-button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #ff1493, #ffb6d9);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 20, 147, 0.3);
+}
+
+.seal-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4);
+}
+
+.seal-button:active {
+    transform: translateY(0);
+}
+
+/* Day 3: Hug */
+.hug-animation {
+    font-size: 5rem;
+    margin: 20px 0;
+    animation: hugPulse 2s ease-in-out infinite;
+    cursor: pointer;
+}
+
+@keyframes hugPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.hug-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #ffe4f0;
+    border-radius: 10px;
+    margin: 15px 0;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.hug-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #ff1493, #ffb6d9);
+    width: 0%;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
+}
+
+/* Day 4: Kiss */
+.kiss-canvas {
+    width: 100%;
+    height: 200px;
+    margin: 20px 0;
+    cursor: pointer;
+    position: relative;
+    background: radial-gradient(circle, rgba(255, 182, 217, 0.3), transparent);
+    border-radius: 15px;
+}
+
+.kiss-counter {
+    font-size: 0.95rem;
+    color: #d63384;
+    font-weight: 600;
+}
+
+/* Day 5: Sunset & Final */
+.sunset-animation {
+    font-size: 4rem;
+    margin: 20px 0;
+    animation: sunsetGlow 3s ease-in-out infinite;
+}
+
+@keyframes sunsetGlow {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(255, 140, 66, 0.3)); }
+    50% { transform: scale(1.1); filter: drop-shadow(0 0 20px rgba(255, 140, 66, 0.6)); }
+}
+
+.final-message {
+    margin: 20px 0;
+    line-height: 2;
+}
+
+.final-message p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #d63384;
+    font-weight: 600;
+    margin: 5px 0;
+    animation: slideInUp 0.8s ease-out backwards;
+}
+
+.final-message p:nth-child(1) { animation-delay: 0.1s; }
+.final-message p:nth-child(2) { animation-delay: 0.2s; }
+.final-message p:nth-child(3) { animation-delay: 0.3s; }
+.final-message p:nth-child(4) { animation-delay: 0.4s; }
+
+.final-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ff1493, #d63384);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4);
+    font-family: 'Playfair Display', serif;
+}
+
+.final-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(255, 20, 147, 0.6);
+}
+
+.final-button:active {
+    transform: scale(0.98);
+}
+
+/* Hidden Messages */
+.hidden-message {
+    margin-top: 15px;
+    animation: fadeInScale 0.6s ease-out;
+}
+
+.reveal-text {
+    font-size: 1.2rem;
+    color: #d63384;
+    font-style: italic;
+    font-weight: 600;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ============================================
+   PROPOSAL OVERLAY
+   ============================================ */
+
+.proposal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 240, 245, 0.98), rgba(255, 182, 217, 0.98));
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: proposalFadeIn 0.3s ease-out;
+    overflow-y: auto;
+}
+
+.proposal-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px 30px;
+}
+
+.close-explosion-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #ff1493;
+    background: rgba(255, 255, 255, 0.9);
+    color: #ff1493;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2002;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+}
+
+.close-explosion-btn:hover {
+    background: #ff1493;
+    color: white;
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.5);
+}
+
+@keyframes proposalFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes proposalFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Proposal Question Section */
+.proposal-question {
+    text-align: center;
+    animation: slideInUp 0.6s ease-out;
+}
+
+.proposal-question h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #333;
+    margin: 20px 0;
+    font-weight: 700;
+}
+
+.proposal-question p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.button-container {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.yes-btn, .no-btn {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.yes-btn {
+    background: linear-gradient(135deg, #ff1493, #ff69b4);
+    color: white;
+    flex: 1;
+    min-width: 150px;
+    max-width: 200px;
+}
+
+.yes-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+}
+
+.no-btn {
+    background: white;
+    color: #ff1493;
+    border: 2px solid #ff1493;
+    flex: 0;
+    padding: 10px 25px;
+    font-size: 0.9rem;
+}
+
+.no-btn:hover {
+    background: rgba(255, 20, 147, 0.1);
+    transform: scale(0.9);
+}
+
+/* Proposal Result Section */
+.proposal-result {
+    text-align: center;
+    animation: slideInUp 0.8s ease-out;
+}
+
+.proposal-image {
+    font-size: 5rem;
+    margin: 30px 0;
+    animation: heartPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.love-letter {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.love-letter h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #ff1493;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.love-letter p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin: 15px 0;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .day-card {
+        min-height: 300px;
+    }
+
+    .day-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .message {
+        font-size: 1rem;
+    }
+
+    .teddy-animation,
+    .promise-ring,
+    .hug-animation,
+    .sunset-animation {
+        font-size: 3.5rem;
+    }
+
+    .final-declaration h1 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .title {
+        font-size: 1.7rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .day-card {
+        min-height: 280px;
+        border-radius: 15px;
+    }
+
+    .day-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .message {
+        font-size: 0.95rem;
+    }
+
+    .teddy-animation,
+    .promise-ring,
+    .hug-animation,
+    .sunset-animation {
+        font-size: 3rem;
+    }
+}
